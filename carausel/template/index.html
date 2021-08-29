@@ -17,73 +17,92 @@
     <title>Slider</title>
   </head>
   <body>
-        <!--Slider-->
-        <section id="main">
-          <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-              <li type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></li>
-              <li type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></li>
-              <li type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></li>
-            </ol>
-              <div class="carousel-inner">
-                  {% for object in obj %}
-                  <div class="carousel-item {% if forloop.first %} active {% endif %}">
-                    <img src="{{object.image.url}} " class="img-fluid d-block w-100" style="height: 600px"  alt="{{object.id}} obj ">
-                      <div class="container">
-                          <div class="carousel-caption d-none d-sm-block text-right mb-5">
-                              <h1 class="animate__animated 
-                              {% if forloop.counter0 == 0 %}
-                              animate__lightSpeedInRight
-                              {% endif %}
-                              {% if forloop.revcounter == 1 %}
-                              animate__zoomInDown
-                              {% endif %}
-                              {% if forloop.revcounter == 2 %}
-                              animate__slideInLeft
-                              {% endif %}
-                              ">{{object.title}}</h1>
-                              <h3 class = "animate__animated 
-                              {% if forloop.counter0 == 0 %}
-                              animate__heartBeat
-                              {% endif %}
-                              {% if forloop.revcounter == 1 %}
-                              animate__fadeInUp
-                              {% endif %}
-                              {% if forloop.revcounter == 2 %}
-                              animate__swing
-                              {% endif %}
-                              ">{{object.sub_title}}</h3>
-                              <a href="
-                              {% if forloop.counter0 == 0 %}
-                              {% url 'contact'%}
-                              {% endif %}
-                              {% if forloop.revcounter == 1 %}
-                              {% url 'contact' %}
-                              {% endif %}
-                              {% if forloop.revcounter == 2 %}
-                              {% url 'about' %}
-                              {% endif %}
-                              " class="btn btn-color slide-btn btn-lg">
-                                  {{object.button}}
-                              </a>
-                          </div>
-                      </div>
+  <!-- Navbar -->
+  <nav>
+    <ul>
+        <li class="logo">PragmaBuild</a></li>
+
+        <div class="items">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+        </div>
+        <!-- <li class="search-icon">
+            <input type="search" placeholder="Search">
+            <label class="icon">
+                <span class="fas fa-search"></span>
+            </label>
+        </li> -->
+    </ul>
+</nav>
+  <!--End of Navbar -->
+<!--Slider-->
+<section id="main">
+  <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></li>
+      <li type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></li>
+      <li type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></li>
+    </ol>
+      <div class="carousel-inner">
+          {% for object in obj %}
+          <div class="carousel-item {% if forloop.first %} active {% endif %}">
+            <img src="{{object.image.url}} " class="img-fluid d-block w-100" style="height: 600px"  alt="{{object.id}} obj ">
+              <div class="container">
+                  <div class="carousel-caption d-none d-sm-block text-right mb-5">
+                      <h1 class="animate__animated 
+                      {% if forloop.counter0 == 0 %}
+                      animate__lightSpeedInRight
+                      {% endif %}
+                      {% if forloop.revcounter == 1 %}
+                      animate__zoomInDown
+                      {% endif %}
+                      {% if forloop.revcounter == 2 %}
+                      animate__slideInLeft
+                      {% endif %}
+                      ">{{object.title}}</h1>
+                      <h3 class = "animate__animated 
+                      {% if forloop.counter0 == 0 %}
+                      animate__heartBeat
+                      {% endif %}
+                      {% if forloop.revcounter == 1 %}
+                      animate__fadeInUp
+                      {% endif %}
+                      {% if forloop.revcounter == 2 %}
+                      animate__swing
+                      {% endif %}
+                      ">{{object.sub_title}}</h3>
+                      <a href="
+                      {% if forloop.counter0 == 0 %}
+                      {% url 'contact'%}
+                      {% endif %}
+                      {% if forloop.revcounter == 1 %}
+                      {% url 'contact' %}
+                      {% endif %}
+                      {% if forloop.revcounter == 2 %}
+                      {% url 'about' %}
+                      {% endif %}
+                      " class="btn btn-color slide-btn btn-lg">
+                          {{object.button}}
+                      </a>
                   </div>
-                  {% endfor %}
               </div>
           </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        </div>
-      </section>
-  
-      <!--End of Slider-->
+          {% endfor %}
+      </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+</section>
+
+<!--End of Slider-->
 
 
 
